@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
 
 //Material Angular
 import { MatDialogModule } from '@angular/material/dialog';
@@ -13,11 +13,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-//Sons Components:
-import { LoginComponent} from './components/login/login.component'
-import { PostComponent} from './components/post/post.component'
 
-import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usuario.component'
+//Sons Components:
+import { LoginComponent} from './login/login.component'
+import { PostComponent} from './post/post.component'
+import { CrearComponent} from './components/crear/crear.component'
+
+import { CrearUsuarioComponent} from './login/crear-usuario/crear-usuario.component'
 
 
 
@@ -26,7 +28,8 @@ import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usu
     AppComponent,
     LoginComponent,
     CrearUsuarioComponent,
-    PostComponent
+    PostComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usu
     MatFormFieldModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
    
 
   ],

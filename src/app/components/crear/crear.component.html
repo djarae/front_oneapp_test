@@ -1,0 +1,16 @@
+<div class="modal">
+    <div class="modal-content">
+      <form >
+        <p>Crear {{modulo}}</p>
+        <div class="form-group">
+          <label >{{valor1}}:</label>
+          <input [(ngModel)]="valor1Txt"  />
+        </div>
+        <div class="form-group">
+          <label >{{valor2}}:</label>
+          <input [(ngModel)]="valor2Txt"   />
+        </div>
+        <button  class="btn" (click)="enviarData()">Enviar Datos</button>
+      </form>
+    </div>
+  </div>
