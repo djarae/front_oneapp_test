@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {UsuarioService} from '../../services/usuario.service'
 
 @Component({
   selector: 'app-login',

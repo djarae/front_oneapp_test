@@ -14,10 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 //Sons Components:
-import { LoginComponent} from './login/login.component'
-import { PostComponent} from './post/post.component'
+import { LoginComponent} from './components/login/login.component'
+import { PostComponent} from './components/post/post.component'
 
-import { CrearUsuarioComponent} from './login/crear-usuario/crear-usuario.component'
+import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usuario.component'
 
 
 
