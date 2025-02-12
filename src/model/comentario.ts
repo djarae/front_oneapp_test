@@ -1,4 +1,4 @@
-class Comentario {
+export class Comentario {
     private id: number;
     private idUsuario: number; //Autor del post
     private idPost: number;

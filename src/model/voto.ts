@@ -1,5 +1,5 @@
 
-class Voto {
+export class Voto {
     private id: number;
     private idPost: number;
     private idUsuario: number;
