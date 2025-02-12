@@ -26,6 +26,7 @@ export class LoginComponent {
   login(): void {
     alert("Loggeado con exito");
     localStorage.setItem('user', 'isLoggedIn');
+    location.reload();
   }
 
 

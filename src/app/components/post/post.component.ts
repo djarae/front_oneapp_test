@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Post} from '../../../model/post'
+import { getPosts } from "../../../services/post"
 
 @Component({
   selector: 'app-post',
@@ -9,7 +10,16 @@ import {Post} from '../../../model/post'
 export class PostComponent {
   Posts = new Array<Post>; 
   async ngOnInit() {
-    const response = await fetch('http://localhost:3000/getPosts');
-    this.Posts=await response.json();
+    this.Posts=await getPosts();
   }
+
+  cerrarSesion(){
+  // let isLoggedIn: boolean = false;
+   console.log("se cierra sesion")
+ 
+   console.log(  localStorage.getItem('user'))
+   localStorage.removeItem('user');
+   location.reload();
+  }
+
 }

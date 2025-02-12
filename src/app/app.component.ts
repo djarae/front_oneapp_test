@@ -20,11 +20,13 @@ export class AppComponent  implements OnInit {
     } else {
       this.isLoggedIn = false;
     }
+   
   }
 
   // Función para simular login (para pruebas)
   login(): void {
     localStorage.setItem('user', 'loggedIn');
+    location.reload();
     this.checkLoginStatus();
   }
 
