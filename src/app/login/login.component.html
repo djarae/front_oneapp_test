@@ -1,0 +1,29 @@
+<div class="login-container">
+    <h1>Login</h1>
+
+    <mat-form-field appearance="fill">
+      <label>Usuario</label>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input  placeholder="Usuario">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <label>Contraseña</label>
+    
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input  placeholder="Contraseña">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <button (click)="login()">Login</button>
+      <button (click)="abrirModal()">Crear Usuario</button>
+    <app-crear-usuario *ngIf="mostrarModal"></app-crear-usuario>
+    </mat-form-field>
+
+
+
+
+  </div>

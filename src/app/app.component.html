@@ -1,0 +1,9 @@
+<div class="home-container">
+  <!-- Mostrar Login si no está logueado -->
+  <app-login *ngIf="!isLoggedIn" (onLogin)="login()"></app-login>
+
+
+  <!-- Mostrar Posts si está logueado -->
+  <!-- <app-post *ngIf="isLoggedIn" (onLogout)="logout()"></app-post> -->
+  <app-post *ngIf="isLoggedIn" ></app-post>
+</div>
