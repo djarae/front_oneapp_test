@@ -27,3 +27,23 @@ export async function getPosts() {
 
     return 0;
  }
+
+
+
+
+
+
+export async function putPost(id: number, titulo: string, contenido: string) {
+  const data = { titulo, contenido };
+  return fetch(`http://localhost:3000/putPost/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+}
+
+export async function deletePost(id: number) {
+  return fetch(`http://localhost:3000/deletePost/${id}`, {
+    method: 'DELETE'
+  });
+}

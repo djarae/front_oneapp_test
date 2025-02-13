@@ -1,22 +1,40 @@
 <div class="container justify-content-center">
-      
-  <button (click)="abrirModal()">Crear Usuario</button>
-   <app-crear-post *ngIf="mostrarModal"></app-crear-post>
+  <button (click)="abrirModal()">Crear Post</button>
+  <table class="table table-light table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Título</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Posts">
+        <td>{{ item.Id }}</td>
+        <td>{{ item.Titulo }}</td>
+        <td>
+          <button (click)="abrirModal(item)">Editar</button>
+          <button (click)="eliminarPost(item.Id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="cerrarSesion()">Cerrar sesión</button>
+</div>
 
-      <table class="table  table-ligth table-striped    justify-content-center " >
-        <thead class="thead-light"> 
-          <tr>
-           <th scope="col">#</th>
-           <th scope="col">Titulo</th>
-          </tr>
-        </thead>
-        <tbody>
-         <tr *ngFor="let item of Posts">
-             <td> {{ item.Id  }}</td> 
-             <td> {{ item.Titulo  }}</td> 
-          </tr> 
-        </tbody> 
-      </table>
-     
-      <button (click)="cerrarSesion()">cerrar sesion</button>
+<div *ngIf="mostrarModal" class="modal">
+  <div class="modal-content">
+    <h2>{{ editandoPost ? 'Editar Post' : 'Crear Post' }}</h2>
+    <form>
+      <div class="form-group">
+        <label>Título:</label>
+        <input type="text" [(ngModel)]="titulo" name="titulo" required />
+      </div>
+      <div class="form-group">
+        <label>Contenido:</label>
+        <input type="text" [(ngModel)]="contenido" name="contenido" required />
+      </div>
+      <button (click)="enviarDatos()" class="btn">{{ editandoPost ? 'Actualizar' : 'Crear' }}</button>
+    </form>
   </div>
+</div>

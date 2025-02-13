@@ -1,6 +1,7 @@
+// post.component.ts
 import { Component } from '@angular/core';
-import {Post} from '../../../model/post'
-import { getPosts,postPost } from "../../../services/post"
+import { Post } from '../../../model/post';
+import { getPosts, postPost, putPost, deletePost } from '../../../services/post';
 
 @Component({
   selector: 'app-post',
@@ -8,28 +9,54 @@ import { getPosts,postPost } from "../../../services/post"
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-  Posts = new Array<Post>; 
+  Posts: Post[] = [];
   mostrarModal: boolean = false;
+  editandoPost: Post | null = null;
+  titulo: string = '';
+  contenido: string = '';
+
   async ngOnInit() {
-    this.Posts=await getPosts();
+    this.Posts = await getPosts();
   }
 
-  cerrarSesion(){
-   localStorage.removeItem('user');
-   location.reload();
+  cerrarSesion() {
+    localStorage.removeItem('user');
+    location.reload();
   }
 
-  
-  crearPost(){
-     alert("c post")
-    //  postPost();
+  abrirModal(post?: Post): void {
+    this.mostrarModal = true;
+    if (post) {
+      this.editandoPost = post;
+      this.titulo = post.Titulo;
+      this.contenido = post.Contenido;
+    } else {
+      this.editandoPost = null;
+      this.titulo = '';
+      this.contenido = '';
     }
+  }
 
-    abrirModal(): void {
-      this.mostrarModal = true;
-      console.log("abre modal");
-  
+  enviarDatos() {
+    if (this.editandoPost) {
+      putPost(this.editandoPost.Id, this.titulo, this.contenido).then(() => {
+        this.editandoPost!.Titulo = this.titulo;
+        this.editandoPost!.Contenido = this.contenido;
+        this.mostrarModal = false;
+      });
+    } else {
+      postPost(this.titulo, this.contenido).then(() => {
+        this.mostrarModal = false;
+        location.reload();
+      });
     }
-   
+  }
 
+  eliminarPost(id: number) {
+    if (confirm('¿Seguro que deseas eliminar este post?')) {
+      deletePost(id).then(() => {
+        this.Posts = this.Posts.filter(post => post.Id !== id);
+      });
+    }
+  }
 }
