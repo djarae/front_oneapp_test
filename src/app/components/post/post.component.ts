@@ -15,8 +15,15 @@ export class PostComponent {
   titulo: string = '';
   contenido: string = '';
 
+  posts: Post[] = [];
+  postSeleccionado?: Post;
+
   async ngOnInit() {
     this.Posts = await getPosts();
+    
+  }
+  verDetalle(post: Post) {
+    this.postSeleccionado = post;
   }
 
   cerrarSesion() {
