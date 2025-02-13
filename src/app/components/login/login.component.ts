@@ -35,11 +35,21 @@ await fetch("http://localhost:3000/login", {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data)
-    }).then(response=>{
-   alert(JSON.stringify(response))
-    localStorage.setItem('user', 'isLoggedIn');
-    location.reload();
-    alert( "Loggeado con exito")
+    }).then(response => response.text())
+    .then(responseText => {
+   alert(JSON.stringify(responseText))
+    
+   
+
+    if (responseText==("true")){
+      localStorage.setItem('user', 'isLoggedIn');
+      location.reload();
+      alert( "Loggeado con exito")
+    }else{
+      alert( "Error usuario o contraseña")
+
+
+    }
 
     }).catch(err => {
         alert("Error: usuario o conteraseña ")

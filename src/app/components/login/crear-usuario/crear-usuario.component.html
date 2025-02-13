@@ -10,7 +10,7 @@
           <label for="contrasena">Contraseña:</label>
           <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required />
         </div>
-        <button type="submit" class="btn">Enviar Datos</button>
+        <button class="btn">Enviar Datos</button>
       </form>
       <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
       <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
