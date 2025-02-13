@@ -5,12 +5,14 @@ export async function getPosts() {
     Posts=await response.json();
         return  Posts
  }
- export async function postPost() { 
-    let data = {"titulo":"Pokemon la lleva2" , "Contenido":"Pokemon es un juegazo que bla bla bla" }
-    
+ export async function postPost(titulo:String, contenido: String) { 
+    // let data = {"titulo":"Pokemon la lleva2" , "Contenido":"Pokemon es un juegazo que bla bla bla" }
+    let data = {"titulo":titulo, "Contenido":contenido}
+   console.log(titulo)
+   console.log(contenido)
+
 
     fetch("http://localhost:3000/postPost", {
-        
         method: "POST",
         headers: {
           Authorization: "CrocodileZebraGiraffe",
@@ -19,7 +21,6 @@ export async function getPosts() {
         body: JSON.stringify(data)
       }).then(response=>{
         console.log('Success: ', response);
-        //if you want to access this response later, you have to assign it to some variable
       }).catch(err => {
         console.log('Error: ', err)
       });

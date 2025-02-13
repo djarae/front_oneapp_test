@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-crear-usuario',

@@ -1,1 +1,16 @@
-<p>crear-post works!</p>
+<div class="modal">
+    <div class="modal-content">
+      <h2>Crear Post</h2>
+      <form >
+        <div class="form-group">
+          <label >titulo:</label>
+          <input type="titulo" id="titulo" [(ngModel)]="titulo" name="titulo" required />
+        </div>
+        <div class="form-group">
+          <label for="contenido">Contenido:</label>
+          <input  id="contenido" [(ngModel)]="contenido" name="contenido" required />
+        </div>
+        <button  (click)="enviarDatos()" class="btn">Enviar Datos</button>
+      </form>
+    </div>
+  </div>

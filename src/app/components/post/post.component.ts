@@ -9,6 +9,7 @@ import { getPosts,postPost } from "../../../services/post"
 })
 export class PostComponent {
   Posts = new Array<Post>; 
+  mostrarModal: boolean = false;
   async ngOnInit() {
     this.Posts=await getPosts();
   }
@@ -21,7 +22,14 @@ export class PostComponent {
   
   crearPost(){
      alert("c post")
-     postPost();
+    //  postPost();
     }
+
+    abrirModal(): void {
+      this.mostrarModal = true;
+      console.log("abre modal");
+  
+    }
+   
 
 }

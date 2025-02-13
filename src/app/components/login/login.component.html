@@ -2,11 +2,11 @@
     <h1>Login</h1>
 
     <mat-form-field appearance="fill">
-      <label>Usuario</label>
+      <label>Email</label>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <input  placeholder="Usuario">
+      <input [(ngModel)]="emailLogin" placeholder="Email">
     </mat-form-field>
     
     <mat-form-field appearance="fill">
@@ -14,7 +14,7 @@
     
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <input  placeholder="Contraseña">
+      <input  [(ngModel)]="contrasenaLogin" placeholder="Contraseña">
     </mat-form-field>
 
     <mat-form-field appearance="fill">

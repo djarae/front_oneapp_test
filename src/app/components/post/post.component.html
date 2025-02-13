@@ -1,5 +1,7 @@
 <div class="container justify-content-center">
-  <button (click)="crearPost()">Crear Post</button>
+      
+  <button (click)="abrirModal()">Crear Usuario</button>
+   <app-crear-post *ngIf="mostrarModal"></app-crear-post>
 
       <table class="table  table-ligth table-striped    justify-content-center " >
         <thead class="thead-light"> 
@@ -15,5 +17,6 @@
           </tr> 
         </tbody> 
       </table>
+     
       <button (click)="cerrarSesion()">cerrar sesion</button>
   </div>

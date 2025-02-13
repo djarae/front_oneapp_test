@@ -18,6 +18,8 @@ import { LoginComponent} from './components/login/login.component'
 import { PostComponent} from './components/post/post.component'
 
 import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usuario.component'
+import { CrearPostComponent} from './components/post/crear-post/crear-post.component'
+
 
 
 
@@ -26,7 +28,8 @@ import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usu
     AppComponent,
     LoginComponent,
     CrearUsuarioComponent,
-    PostComponent
+    PostComponent,
+    CrearPostComponent
   ],
   imports: [
     BrowserModule,
