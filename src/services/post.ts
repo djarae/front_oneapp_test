@@ -5,11 +5,11 @@ export async function getPosts() {
     Posts=await response.json();
         return  Posts
  }
- export async function putPost() { 
-    let data = {"titulo":"Pokemon la lleva" , "Contenido":"Pokemon es un juegazo que bla bla bla" }
+ export async function postPost() { 
+    let data = {"titulo":"Pokemon la lleva2" , "Contenido":"Pokemon es un juegazo que bla bla bla" }
     
 
-    fetch("http://localhost:3000/putPost", {
+    fetch("http://localhost:3000/postPost", {
         
         method: "POST",
         headers: {

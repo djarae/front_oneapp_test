@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Post} from '../../../model/post'
-import { getPosts,putPost } from "../../../services/post"
+import { getPosts,postPost } from "../../../services/post"
 
 @Component({
   selector: 'app-post',
@@ -21,7 +21,7 @@ export class PostComponent {
   
   crearPost(){
      alert("c post")
-      putPost();
+     postPost();
     }
 
 }
