@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+// crear-usuario.component.ts
+import { Component, EventEmitter, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -11,25 +12,27 @@ export class CrearUsuarioComponent {
   contrasena: string = '';
   successMessage: string = '';
   errorMessage: string = '';
+  
+  @Output() cerrar = new EventEmitter<void>();
+
+  constructor(private http: HttpClient) {}
+
   enviarData(): void {
     const usuario = { email: this.email, contrasena: this.contrasena };
-    // this.usuarioService.crearUsuario(usuario).subscribe(
-    //   (response: boolean) => {
-    //     if (response) {
-    //       this.successMessage = 'Usuario creado con éxito';
-    //       this.errorMessage = '';
-    //     } else {
-    //       this.errorMessage = 'Error al crear el usuario';
-    //       this.successMessage = '';
-    //     }
-    //   },
-    //   error => {
-    //     this.errorMessage = 'Hubo un error al conectar con el servidor';
-    //     this.successMessage = '';
-    //   }
-    // );
+    this.http.post('http://localhost:3000/login', usuario).subscribe(
+      response => {
+        this.successMessage = 'Usuario creado con éxito';
+        this.errorMessage = '';
+        setTimeout(() => this.cerrar.emit(), 2000);
+      },
+      error => {
+        this.successMessage = '';
+        this.errorMessage = 'Error al crear usuario';
+      }
+    );
   }
   
-
-
+  cerrarModal(): void {
+    this.cerrar.emit();
+  }
 }
