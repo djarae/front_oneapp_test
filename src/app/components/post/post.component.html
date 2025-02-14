@@ -15,6 +15,7 @@
         <td>
           <button (click)="abrirModal(item)">Editar</button>
           <button (click)="eliminarPost(item.Id)">Eliminar</button>
+          <button (click)="verDetalle(item.Id)">Ver Detalle</button>
         </td>
       </tr>
       <!-- <app-detalle-post *ngIf="postSeleccionado" [post]="postSeleccionado"></app-detalle-post> -->
@@ -22,6 +23,8 @@
   </table>
   <button (click)="cerrarSesion()">Cerrar sesión</button>
 </div>
+
+
 
 <div *ngIf="mostrarModal" class="modal">
   <div class="modal-content">

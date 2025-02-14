@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComentarioService } from '../../../../services/comentario.service';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-detalle',
@@ -8,8 +16,13 @@ import { ComentarioService } from '../../../../services/comentario.service';
   styleUrls: ['./detalle.component.css']
 })
 export class DetalleComponent implements OnInit {
+volverALista() {
+throw new Error('Method not implemented.');
+}
   postId!: number;
   comentarios: any[] = [];
+post: any;
+nuevoComentario: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,9 +41,9 @@ export class DetalleComponent implements OnInit {
     });
   }
 
-  agregarComentario(contenido: string) {
-    const nuevoComentario = { idPost: this.postId, contenido };
-    this.comentarioService.crearComentario(nuevoComentario).subscribe(() => {
+  agregarComentario() {
+    const nuevoComentario2 = { idPost: this.postId };
+    this.comentarioService.crearComentario(nuevoComentario2).subscribe(() => {
       this.obtenerComentarios();
     });
   }

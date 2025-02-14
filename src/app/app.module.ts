@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card'; 
 
 //Sons Components:
 import { LoginComponent} from './components/login/login.component'
@@ -38,7 +39,8 @@ import { CrearPostComponent} from './components/post/crear-post/crear-post.compo
     MatFormFieldModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
    
 
   ],

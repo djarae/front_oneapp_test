@@ -2,13 +2,14 @@
 import { Component } from '@angular/core';
 import { Post } from '../../../model/post';
 import { getPosts, postPost, putPost, deletePost } from '../../../services/post';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
+  constructor(private router: Router) {}
   Posts: Post[] = [];
   mostrarModal: boolean = false;
   editandoPost: Post | null = null;
@@ -22,10 +23,9 @@ export class PostComponent {
     this.Posts = await getPosts();
     
   }
-  verDetalle(post: Post) {
-    this.postSeleccionado = post;
+  verDetalle(postId: number) {
+    this.router.navigate(['/detalle', postId]);
   }
-
   cerrarSesion() {
     localStorage.removeItem('user');
     location.reload();
@@ -43,6 +43,8 @@ export class PostComponent {
       this.contenido = '';
     }
   }
+
+  
 
   enviarDatos() {
     if (this.editandoPost) {
