@@ -5,18 +5,21 @@
     <h3>Comentarios</h3>
     <ul>
       <li *ngFor="let comentario of comentarios">
-        <p>{{ comentario.contenido }}</p>
+        <p>{{ comentario.Contenido }}</p>
         <button (click)="editarComentario(comentario)">Editar</button>
-        <button (click)="eliminarComentario(comentario.id)">Eliminar</button>
+        <button (click)="eliminarComentario(comentario.Id)">Eliminar</button>
       </li>
     </ul>
   </div>
 
   <div class="nuevo-comentario">
     <h3>Agregar Comentario</h3>
+    <h3>Post coment {{idPostBuscar}}</h3>
     <!-- <textarea [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario"></textarea> -->
     <button (click)="agregarComentario()">Enviar</button>
   </div>
+  <button (click)="cerrarModalDetalle()" >CERRAR</button>
+
 </div>
 
 <style>

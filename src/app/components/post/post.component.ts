@@ -1,7 +1,7 @@
 // post.component.ts
 import { Component } from '@angular/core';
 import { Post } from '../../../model/post';
-import { getPosts, postPost, putPost, deletePost } from '../../../services/post';
+import { getPosts, postPost, putPost, deletePost } from '../../../services/post.service';
 import { Router } from '@angular/router';
 
 
@@ -23,6 +23,7 @@ export class PostComponent {
   posts: Post[] = [];
   postSeleccionado?: Post;
 
+  postIdSeleccionado: number = 0;
   async ngOnInit() {
     this.Posts = await getPosts();
     
@@ -32,9 +33,14 @@ export class PostComponent {
 
   
   verDetalle(postId: number) {
-    // this.router.navigate(['/detalle', postId]);
+  
     this.mostrarModalDetalle = true;
-    console.log("abre modal");
+    let txtPostId = postId.toString();
+    localStorage.setItem("IdDetalleActivo",txtPostId)
+
+    let perseador : any="";
+    perseador = localStorage.getItem("IdDetalleActivo");
+    this.postIdSeleccionado=parseInt(perseador); 
   }
 
 
