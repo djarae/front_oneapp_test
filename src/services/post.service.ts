@@ -1,9 +1,24 @@
 import {Post} from '../model/post'
 
 
-export async function getPosts() { 
-    var Posts = new Array<Post>; 
-    const response = await fetch('http://localhost:3000/getPosts');
+export async function getPosts(idPagina:number) { 
+    var Posts = new Array<Post>;
+    
+    
+  //  const response = await fetch('http://localhost:3000/getPosts');
+
+//se que deberia usar get ,pero por tiempo lo usare, par luego ver como era implementar los aprametros
+    let data = { "idPagina":idPagina}
+    const response = await fetch("http://localhost:3000/getPosts", {
+      method: "POST",
+      headers: {
+        Authorization: "CrocodileZebraGiraffe",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+
+
     Posts=await response.json();
         return  Posts
  }

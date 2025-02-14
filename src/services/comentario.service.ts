@@ -40,11 +40,7 @@ export class ComentarioService {
 
 export async function getComentarios(idPost: number) { 
     var Comentarios = new Array<Comentario>; 
-    // const response = await fetch('http://localhost:3000/comentarios/:'+idPost);
-    // Comentarios=await response.json();
-    let data = {
-      "idPost":idPost
-  }
+    let data = { "idPost":idPost}
     const response = await fetch("http://localhost:3000/comentarios/getComentario", {
       method: "POST",
       headers: {
@@ -53,8 +49,6 @@ export async function getComentarios(idPost: number) {
       },
       body: JSON.stringify(data)
     })
-    console.log("response")
-    console.log(response)
     Comentarios=await response.json();
  return  Comentarios
  }

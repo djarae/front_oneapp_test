@@ -24,13 +24,27 @@ export class PostComponent {
   postSeleccionado?: Post;
 
   postIdSeleccionado: number = 0;
+
+  pagina : number =1;
   async ngOnInit() {
-    this.Posts = await getPosts();
+    this.Posts = await getPosts(this.pagina);
     
   }
 
 
-
+  async paginaModif(idModif:number){
+    //1 = resta; 2=suma
+    if (idModif==1){
+      if (this.pagina>1){
+        this.pagina=this.pagina-1
+      }
+    }
+    if (idModif==2){
+      //debo obtener el total de posts en bd con un select count y validar que no se pase 
+        this.pagina=this.pagina+1
+    }
+    this.Posts = await getPosts(this.pagina);
+  }
   
   verDetalle(postId: number) {
   
