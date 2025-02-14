@@ -2,8 +2,9 @@
 import { Component } from '@angular/core';
 import { Post } from '../../../model/post';
 import { getPosts, postPost, putPost, deletePost } from '../../../services/post';
-import {DetalleComponent} from './detalle/detalle.component'
 import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
