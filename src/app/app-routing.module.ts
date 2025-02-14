@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostComponent } from './components/post/post.component';
-import { DetalleComponent } from './components/post/detalle/detalle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/posts', pathMatch: 'full' },
-  { path: 'posts', component: PostComponent },
-  { path: 'detalle/:id', component: DetalleComponent }
+  { path: 'posts', component: PostComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 //Sons Components:
 import { LoginComponent} from './components/login/login.component'
 import { PostComponent} from './components/post/post.component'
+import {DetalleComponent} from './components/post/detalle/detalle.component'
 
 import { CrearUsuarioComponent} from './components/login/crear-usuario/crear-usuario.component'
 import { CrearPostComponent} from './components/post/crear-post/crear-post.component'
@@ -30,7 +31,8 @@ import { CrearPostComponent} from './components/post/crear-post/crear-post.compo
     LoginComponent,
     CrearUsuarioComponent,
     PostComponent,
-    CrearPostComponent
+    CrearPostComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
